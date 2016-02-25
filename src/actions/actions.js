@@ -3,10 +3,10 @@ import {
   LOAD_STARSHIP, LOAD_PLANET, LOAD_PERSON
 } from './constants';
 
-export const discoverPersons = (names) => {
+export const discoverPersons = (persons) => {
   return {
     type: DISCOVERED_PERSONS,
-    names: names
+    persons: persons
   };
 };
 

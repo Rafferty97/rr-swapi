@@ -18,9 +18,10 @@ export const app = (state, action) => {
   }
 
   if (action.type == DISCOVERED_PERSONS) {
-    return state.update('personNames', (personNames) => {
-      var ns = personNames;
-      action.names.forEach(function (person, i) {
+    return state.update('persons', (persons) => {
+      let ns = persons;
+      action.persons.forEach((person, i) => {
+        if (ns.has(person.id)) return;
         ns = ns.set(person.id, {
           name: person.name,
           loaded: false

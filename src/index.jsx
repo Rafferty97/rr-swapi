@@ -10,7 +10,7 @@ import PersonPage from './views/PersonPage';
 
 let store = makeStore();
 
-import { loadPerson } from './actions/actions.js';
+import { loadPerson, discoverPersons } from './actions/actions.js';
 
 store.dispatch(loadPerson(1, {
   name: 'Luke Skywalker',
@@ -24,6 +24,10 @@ store.dispatch(loadPerson(3, {
   name: 'Albert Einstein',
   weight: '90kg'
 }));
+store.dispatch(discoverPersons([
+  { id: 4, name: 'Alexander Rafferty' },
+  { id: 5, name: 'Jack Scott' }
+]));
 
 window.addPerson = (id, name) => {
   store.dispatch(loadPerson(id, { name }));
