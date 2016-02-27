@@ -1,8 +1,13 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 
-import { app } from './reducers/app.js';
+import reducer from './reducers/root';
+import swapi from './middleware/swapi';
+
+const createStoreWithMiddleware = applyMiddleware(
+  swapi
+)(createStore);
 
 export default function makeStore()
 {
-  return createStore(app);
+  return createStoreWithMiddleware(reducer);
 }

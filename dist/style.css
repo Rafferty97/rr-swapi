@@ -21,9 +21,13 @@ h1.page-title {
   text-align: center;
 }
 
+.ui-search-box.hidden {
+  display: none;
+}
+
 .ui-search-box input {
   font-size: 18px;
-  padding: 10px;
+  padding: 10px 12px;
   border-radius: 6px;
   background-color: white;
   border: 2px solid black;
@@ -47,14 +51,41 @@ h1.page-title {
 }
 
 .ui-suggestion-item {
-  padding: 10px;
+  position: relative;
+  padding: 10px 12px;
 }
 
 .ui-suggestion-item + .ui-suggestion-item {
   border-top: 1px solid #e0e0e0;
 }
 
-.ui-suggestion-item.no-results {
+.ui-suggestion-item .entity-type {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+}
+
+.ui-suggestion-item.no-results,
+.ui-suggestion-item.excess-items,
+.ui-suggestion-item .entity-type {
   font-style: italic;
-  color: #808080;
+  color: #a0a0a0;
+}
+
+.ui-suggestion-item.fetching {
+  color: #f8f8f8;
+  background-image: url('img/spinner-30.gif');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+@media
+(-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
+
+  .ui-suggestion-item.fetching {
+    background-image: url('img/spinner-60.gif');
+    background-size: 30px;
+  }
+
 }

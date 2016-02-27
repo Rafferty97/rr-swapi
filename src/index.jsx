@@ -12,22 +12,16 @@ let store = makeStore();
 
 import { loadPerson, discoverPersons } from './actions/actions.js';
 
-store.dispatch(loadPerson(1, {
+/*store.dispatch(loadPerson(1, {
   name: 'Luke Skywalker',
   weight: '75kg'
-}));
-store.dispatch(loadPerson(2, {
-  name: 'Amy Winehouse',
-  weight: '52kg'
-}));
-store.dispatch(loadPerson(3, {
-  name: 'Albert Einstein',
-  weight: '90kg'
 }));
 store.dispatch(discoverPersons([
   { id: 4, name: 'Alexander Rafferty' },
   { id: 5, name: 'Jack Scott' }
-]));
+]));*/
+
+// comment
 
 window.addPerson = (id, name) => {
   store.dispatch(loadPerson(id, { name }));

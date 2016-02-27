@@ -1,35 +1,35 @@
-import {
-  DISCOVERED_STARSHIPS, DISCOVERED_PLANETS, DISCOVERED_PERSONS,
-  LOAD_STARSHIP, LOAD_PLANET, LOAD_PERSON
-} from './constants';
-
-export const discoverPersons = (persons) => {
+export const LOAD_ENTITY = 'LOAD_ENTITY';
+export const loadEntity = (id, type, data) => {
   return {
-    type: DISCOVERED_PERSONS,
-    persons: persons
+    type: LOAD_ENTITY, id, entityType: type, data
   };
 };
 
-export const loadStarship = (id, data) => {
+export const NEW_QUERY = 'NEW_QUERY';
+export const newQuery = (query) => {
   return {
-    type: LOAD_STARSHIP,
-    id: id,
-    data: data
+    type: NEW_QUERY, query
   };
 };
 
-export const loadPlanet = (id, data) => {
+export const STARTED_FETCHING = 'STARTED_FETCHING';
+export const startedFetching = () => {
   return {
-    type: LOAD_PLANET,
-    id: id,
-    data: data
+    type: STARTED_FETCHING
   };
 };
 
-export const loadPerson = (id, data) => {
+export const FINISHED_FETCHING = 'FINISHED_FETCHING';
+export const finishedFetching = () => {
   return {
-    type: LOAD_PERSON,
-    id: id,
-    data: data
+    type: FINISHED_FETCHING
+  };
+};
+
+export const FETCHED_PAGE = 'FETCHED_PAGE';
+export const fetchedPage = (entity, page, hasNext) => {
+  return {
+    type: 'FETCHED_PAGE', entity, page,
+    nextPage: hasNext ? page+1 : -1,
   };
 };
